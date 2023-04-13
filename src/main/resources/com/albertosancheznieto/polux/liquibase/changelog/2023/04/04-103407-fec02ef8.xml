@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="polux">
+        <createTable tableName="POLUX_CATEGORIA_CLIENTE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_CATEGORIA_CLIENTE"/>
+            </column>
+            <column name="DESCRIPCION" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="polux">
+        <createTable tableName="POLUX_CLIENTE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_CLIENTE"/>
+            </column>
+            <column name="NOMBRE" type="VARCHAR(255)"/>
+            <column name="APELLIDOS" type="VARCHAR(255)"/>
+            <column name="TELEFONO" type="VARCHAR(255)"/>
+            <column name="EMAIL" type="VARCHAR(255)"/>
+            <column name="DIRECCION" type="VARCHAR(255)"/>
+            <column name="LOCALIDAD" type="VARCHAR(255)"/>
+            <column name="PROVINCIA" type="VARCHAR(255)"/>
+            <column name="CODIGO_POSTAL" type="INT"/>
+            <column name="CODIGO_CLIENTE" type="VARCHAR(255)"/>
+            <column name="TARJETA_CLIENTE" type="VARCHAR(255)"/>
+            <column name="CODIGO_FIDELIZADO" type="VARCHAR(255)"/>
+            <column name="TARJETA_FIDELIZADO" type="VARCHAR(255)"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="polux">
+        <createTable tableName="POLUX_COLECTIVO">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_COLECTIVO"/>
+            </column>
+            <column name="DESCRIPCION" type="VARCHAR(255)"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="polux">
+        <createTable tableName="POLUX_COLECTIVO_CLIENTE_LINK">
+            <column name="CLIENTE_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_COLECTIVO_CLIENTE_LINK"/>
+            </column>
+            <column name="COLECTIVO_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_COLECTIVO_CLIENTE_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="polux">
+        <createTable tableName="POLUX_ORGANIZACION">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_ORGANIZACION"/>
+            </column>
+            <column name="CODIGO" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPCION" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CODIGO_GESTION" type="VARCHAR(255)"/>
+            <column name="CODIGO_RRHH" type="VARCHAR(255)"/>
+            <column name="CODIGO_ALMACEN" type="VARCHAR(255)"/>
+            <column name="PATH_ORGANIZACION" type="VARCHAR(255)"/>
+            <column name="ID_PADRE_ID" type="UUID"/>
+            <column name="CATEGORIA_ORGANIZACION" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="polux">
+        <createTable tableName="POLUX_PRODUCTO">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_PRODUCTO"/>
+            </column>
+            <column name="CODIGO" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPCION" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="polux">
+        <createTable tableName="POLUX_SURTIDO">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_SURTIDO"/>
+            </column>
+            <column name="CODIGO" type="VARCHAR(255)"/>
+            <column name="DESCRIPCION" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="8" author="polux">
+        <createTable tableName="POLUX_SURTIDO_ORGANIZACION_LINK">
+            <column name="ORGANIZACION_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_SURTIDO_ORGANIZACION_LINK"/>
+            </column>
+            <column name="SURTIDO_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_SURTIDO_ORGANIZACION_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="9" author="polux">
+        <createTable tableName="POLUX_TICKET_RESUMEN">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POLUX_TICKET_RESUMEN"/>
+            </column>
+            <column name="FECHA_YHORA" type="DATETIME"/>
+            <column name="FECHA" type="DATE"/>
+            <column name="HORA" type="TIME"/>
+            <column name="NUMERO_TICKET" type="VARCHAR(255)"/>
+            <column name="IMPORTE_TICKET" type="DECIMAL(12, 2)"/>
+            <column name="IMPORTE_CUPON" type="DECIMAL(12, 2)"/>
+            <column name="CANTIDAD_CUPONES" type="SMALLINT"/>
+            <column name="TICKET_XML_JSON" type="CLOB"/>
+            <column name="ESTADO_TICKET" type="VARCHAR(255)"/>
+            <column name="CODIGO_RESPUESTA" type="VARCHAR(255)"/>
+            <column name="RESPUESTA" type="CLOB"/>
+            <column name="ORGANIZACION_ID" type="UUID"/>
+            <column name="CLIENTE_ID" type="UUID"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="10" author="polux">
+        <createIndex indexName="IDX_POLUX_ORGANIZACION_ID_PADRE" tableName="POLUX_ORGANIZACION">
+            <column name="ID_PADRE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="ID_PADRE_ID" baseTableName="POLUX_ORGANIZACION"
+                                 constraintName="FK_POLUX_ORGANIZACION_ON_ID_PADRE" onDelete="CASCADE"
+                                 referencedColumnNames="ID" referencedTableName="POLUX_ORGANIZACION"/>
+    </changeSet>
+    <changeSet id="11" author="polux">
+        <createIndex indexName="IDX_POLUX_TICKET_RESUMEN_CLIENTE" tableName="POLUX_TICKET_RESUMEN">
+            <column name="CLIENTE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="CLIENTE_ID" baseTableName="POLUX_TICKET_RESUMEN"
+                                 constraintName="FK_POLUX_TICKET_RESUMEN_ON_CLIENTE" referencedColumnNames="ID"
+                                 referencedTableName="POLUX_CLIENTE"/>
+    </changeSet>
+    <changeSet id="12" author="polux">
+        <createIndex indexName="IDX_POLUX_TICKET_RESUMEN_ORGANIZACION" tableName="POLUX_TICKET_RESUMEN">
+            <column name="ORGANIZACION_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="ORGANIZACION_ID" baseTableName="POLUX_TICKET_RESUMEN"
+                                 constraintName="FK_POLUX_TICKET_RESUMEN_ON_ORGANIZACION" referencedColumnNames="ID"
+                                 referencedTableName="POLUX_ORGANIZACION"/>
+    </changeSet>
+    <changeSet id="13" author="polux">
+        <addForeignKeyConstraint baseColumnNames="CLIENTE_ID" baseTableName="POLUX_COLECTIVO_CLIENTE_LINK"
+                                 constraintName="FK_POLCOLCLI_ON_CLIENTE" referencedColumnNames="ID"
+                                 referencedTableName="POLUX_CLIENTE"/>
+    </changeSet>
+    <changeSet id="14" author="polux">
+        <addForeignKeyConstraint baseColumnNames="COLECTIVO_ID" baseTableName="POLUX_COLECTIVO_CLIENTE_LINK"
+                                 constraintName="FK_POLCOLCLI_ON_COLECTIVO" referencedColumnNames="ID"
+                                 referencedTableName="POLUX_COLECTIVO"/>
+    </changeSet>
+    <changeSet id="15" author="polux">
+        <addForeignKeyConstraint baseColumnNames="ORGANIZACION_ID" baseTableName="POLUX_SURTIDO_ORGANIZACION_LINK"
+                                 constraintName="FK_POLSURORG_ON_ORGANIZACION" referencedColumnNames="ID"
+                                 referencedTableName="POLUX_ORGANIZACION"/>
+    </changeSet>
+    <changeSet id="16" author="polux">
+        <addForeignKeyConstraint baseColumnNames="SURTIDO_ID" baseTableName="POLUX_SURTIDO_ORGANIZACION_LINK"
+                                 constraintName="FK_POLSURORG_ON_SURTIDO" referencedColumnNames="ID"
+                                 referencedTableName="POLUX_SURTIDO"/>
+    </changeSet>
+</databaseChangeLog>
